@@ -19,18 +19,22 @@ class FeedBackDetailViewController: UIViewController {
     
     
     // MARK: - UIItems
-    var titleLabel: UILabel!
-    var detailQuestion: UITextView!
-    var testText: UITextView!
-    var wjlLabel: UILabel!
-    var wjlButton: UIButton!
+    var questionTitleLabel: UILabel!
+    var detailQuestion: UITextField!
+    var detail: UILabel!
+    var comment: UITableView!
+    
+    
+//    var testText: UITextView!
+//    var wjlLabel: UILabel!
+//    var wjlButton: UIButton!
     
     
     
     override func viewDidLoad() {
         super .viewDidLoad()
         setUp()
-        laodData()
+//        loadData()
         
         
         
@@ -48,50 +52,76 @@ extension FeedBackDetailViewController {
     private func setUp() {
         
         print(questionID as Any)
-        laodData()
-        print(questions)
-        
-        
-        for question in questions {
-            if question.id == questionID {
-                questionOfthisPage = question
-                print(question.name as Any)
-                return
-            } else {
-                print("nothing")
+        loadQuestionData { (data) in
+            for item in self.questions {
+                if item.id == self.questionID {
+                    self.questionOfthisPage = item
+                    break
+                } else {
+                    print("nothing")
+                }
             }
+            print(self.questionOfthisPage as Any)
+            self.questionTitleLabel = UILabel()
+            self.questionTitleLabel.text = self.questionOfthisPage?.name
+            self.questionTitleLabel.textColor = .black
+            self.view.addSubview(self.questionTitleLabel)
+            self.questionTitleLabel.snp.makeConstraints{ (make) in
+                
+                make.topMargin.equalTo(self.view.snp_topMargin).offset(30)
+                make.leftMargin.equalTo(self.view.snp_leftMargin).offset(20)
+            
+            }
+            self.questionTitleLabel.font = UIFont.boldSystemFont(ofSize: 25)
+            
+
+            self.detail = UILabel()
+            self.detail.text = self.questionOfthisPage?.description
+            self.detail.textColor = UIColor.black
+            self.detail.backgroundColor = .clear
+            self.detail.textAlignment = .left
+            self.detail.numberOfLines = 0
+            self.view.addSubview(self.detail)
+            self.detail.snp.makeConstraints{ (make) in
+                make.left.equalTo(15)
+                make.right.equalTo(-15)
+                make.top.equalTo(self.questionTitleLabel.snp.bottom).offset(5)
+                make.height.greaterThanOrEqualTo(20)
+            }
+            self.detail.font = UIFont.boldSystemFont(ofSize: 15)
+            
+            
+            
+            
+            
+            
+        }
+        loadCommentData{(data) in
+            
+//            for item in self
+            
+            
+            self.comment = UITableView()
+            self.comment.backgroundColor = UIColor.white
+            self.comment.delegate = self
+            self.comment.dataSource = self
+            self.view.addSubview(self.comment)
+            self.comment.snp.makeConstraints{(make) in
+                
+                make.topMargin.equalTo(self.view.snp_top).offset(400)
+                make.width.equalTo(self.view.frame.width)
+            }
+            
         }
         
+    
+
         
-//        print(questionOfthisPage?.name)
+        
         navigationItem.title = "问题详情"
         view.backgroundColor = UIColor.white
         
-        wjlButton = UIButton()
-        wjlButton.setImage(UIImage(systemName: "tortoise"), for: .normal)
-//        wjlButton.contentVerticalAlignment = .fill
-//        wjlButton.contentHorizontalAlignment = .fill
-        wjlButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        wjlButton.tintColor = .systemBlue
-        wjlButton.addTarget(self, action: #selector(campusComfirm), for: .touchUpInside)
-        view.addSubview(wjlButton)
-        wjlButton.snp.makeConstraints{ (make) in
-            make.centerX.equalTo(view.frame.width/2)
-            make.centerY.equalTo(view.frame.height/2)
-            make.height.equalTo(300)
-            make.width.equalTo(300)
-//            make.width.equalTo(view.frame.width * 1/3)
-//            make.height.equalTo(view.frame.width * 1/3)
-        }
-        titleLabel = UILabel()
-        titleLabel.text = questionOfthisPage?.name
-        titleLabel.textColor = .black
-        view.addSubview(titleLabel)
-        
-        titleLabel.snp.makeConstraints{ (make) in
-            make.topMargin.equalTo(wjlButton.snp_bottom).offset(30)
-            make.centerX.equalTo(view.frame.width/2)
-        }
+
     }
     @objc func campusComfirm() {
         
@@ -100,13 +130,47 @@ extension FeedBackDetailViewController {
 
 // MARK: - Data
 extension FeedBackDetailViewController {
-    private func laodData() {
+    private func loadCommentData(completion: @escaping ([CommentDatum])->Void) {
         CommentHelper.commentGet { (data) in
             self.comments = data
+            completion(data)
         }
+        
+    }
+    private func loadQuestionData(completion: @escaping ([QuestionDatum]) -> Void) {
         QuestionHelper.questionGet{ (data) in
             self.questions = data
-//            self.view.reloadInputViews()
+            completion(data)
         }
     }
+}
+
+// MARK: - func
+
+extension FeedBackDetailViewController: UITextViewDelegate,UITableViewDataSource, UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return comments.count
+        
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let commentCell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: "commentCellID")
+        let commentCell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: "commentCellID")
+        
+        commentCell.backgroundColor = UIColor.lightGray
+        commentCell.translatesAutoresizingMaskIntoConstraints = false
+        commentCell.textLabel?.text = comments[indexPath.row].contain
+        commentCell.textLabel?.textColor = .black
+        commentCell.textLabel?.font = .boldSystemFont(ofSize: 18)
+        commentCell.textLabel?.numberOfLines = 0
+        commentCell.addSubview(commentCell.contentView)
+        return commentCell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+    
+    
 }

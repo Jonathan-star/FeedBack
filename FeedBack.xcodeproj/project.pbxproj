@@ -20,6 +20,7 @@
 		2BAB127A25146E7D00FF6EEF /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAB127925146E7D00FF6EEF /* UserHelper.swift */; };
 		2BAB127D25146EDC00FF6EEF /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAB127C25146EDC00FF6EEF /* Consts.swift */; };
 		2BAB12802514C40000FF6EEF /* QuestionPostHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAB127F2514C40000FF6EEF /* QuestionPostHelper.swift */; };
+		2BAB12852516EAF600FF6EEF /* MyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAB12842516EAF600FF6EEF /* MyTextView.swift */; };
 		2BE2F9CD25139FF300D444D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2F9CC25139FF300D444D2 /* AppDelegate.swift */; };
 		2BE2F9CF25139FF300D444D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2F9CE25139FF300D444D2 /* SceneDelegate.swift */; };
 		2BE2F9D425139FF300D444D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BE2F9D225139FF300D444D2 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		2BAB127925146E7D00FF6EEF /* UserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
 		2BAB127C25146EDC00FF6EEF /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
 		2BAB127F2514C40000FF6EEF /* QuestionPostHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPostHelper.swift; sourceTree = "<group>"; };
+		2BAB12842516EAF600FF6EEF /* MyTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextView.swift; sourceTree = "<group>"; };
 		2BE2F9C925139FF300D444D2 /* FeedBack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedBack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BE2F9CC25139FF300D444D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BE2F9CE25139FF300D444D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				2B7E09B52513A217004338BA /* TagSelectView.swift */,
+				2BAB12842516EAF600FF6EEF /* MyTextView.swift */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B7E09C62513A304004338BA /* FeedBackMainViewController.swift in Sources */,
+				2BAB12852516EAF600FF6EEF /* MyTextView.swift in Sources */,
 				2B7E09C32513A2AB004338BA /* UIButtonExtension.swift in Sources */,
 				2B7E09BD2513A26B004338BA /* QuestionHelper.swift in Sources */,
 				2B7E09B62513A217004338BA /* TagSelectView.swift in Sources */,

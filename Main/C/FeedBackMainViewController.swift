@@ -121,7 +121,7 @@ extension FeedBackMainViewController {
             make.centerX.equalTo(view.frame.width/4)
             make.topMargin.equalTo(pyyButton.snp_bottom).offset(-5)
         }
-        
+        // FIXME: 改写成
         wjlButton = UIButton()
         wjlButton.setImage(UIImage(systemName: "tortoise"), for: .normal)
         wjlButton.contentVerticalAlignment = .fill
@@ -224,8 +224,10 @@ extension FeedBackMainViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let VC = FeedBackDetailViewController()
+        
         if questions[indexPath.row].id != nil {
             VC.questionID = questions[indexPath.row].id
+            
 //            print(questions[indexPath.row].id)
         } else {
             print("no id")

@@ -3,4 +3,54 @@
    uuid = "54820B1D-B38C-44C2-A059-5415355EEB71"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "870DD733-0902-40DF-97A8-18ABD7735FB9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Main/C/FeedBackDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "setUp()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "870DD733-0902-40DF-97A8-18ABD7735FB9 - 859db43826fab525"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Array&lt;FeedBack.CommentDatum&gt;) -&gt; () in FeedBack.FeedBackDetailViewController.(setUp in _5A61E52FAF63A1F82963B04060D3BDB5)() -&gt; ()"
+                  moduleName = "FeedBack"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yulongyi/Desktop/Swift%20%E5%9F%BA%E6%93%8D%E7%BB%83%E4%B9%A0/FeedBack/Main/C/FeedBackDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "1393">
+               </Location>
+               <Location
+                  uuid = "870DD733-0902-40DF-97A8-18ABD7735FB9 - 679561d163fa1c78"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SnapKit.ConstraintMaker) -&gt; () in closure #2 (Swift.Array&lt;FeedBack.CommentDatum&gt;) -&gt; () in FeedBack.FeedBackDetailViewController.(setUp in _5A61E52FAF63A1F82963B04060D3BDB5)() -&gt; ()"
+                  moduleName = "FeedBack"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yulongyi/Desktop/Swift%20%E5%9F%BA%E6%93%8D%E7%BB%83%E4%B9%A0/FeedBack/Main/C/FeedBackDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
+                  offsetFromSymbolStart = "111">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

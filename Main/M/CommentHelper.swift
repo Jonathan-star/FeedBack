@@ -24,11 +24,18 @@ struct CommentDatum:Codable {
 
 
 class CommentHelper {
+//    let VC = FeedBackDetailViewController()
+    
+    
+    
     
     
     static func commentGet(someClosure: @escaping ([CommentDatum]) -> Void) {
+        let VC = FeedBackDetailViewController()
+        let id = VC.questionID
         
-        let commentRequest: DataRequest = Alamofire.request(BASE_USER_URL + USER_COMMENT + "question_id=2")
+        
+        let commentRequest: DataRequest = Alamofire.request(BASE_USER_URL + USER_COMMENT + "question_id=\(id ?? 0)")
         commentRequest.responseJSON { response in
             do {
                 var commentArray: [CommentDatum] = []
@@ -43,6 +50,7 @@ class CommentHelper {
                     }
                     
                     someClosure(commentArray)
+                    
                 }
                 
             } catch {
